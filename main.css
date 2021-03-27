@@ -39,8 +39,9 @@ body.light {
 }
 
 .calculator {
-  width: 330px;
+  width: 350px;
   height: 90vh;
+  max-height: 700px;
   display: flex;
   flex-direction: column;
   background-color: var(--primary-bg-dark);
@@ -202,11 +203,11 @@ body.light {
   background-color: var(--secondary-key);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .calculator {
-    width: 300px;
-    height: 90vh;
-    max-height: 600px;
+    width: 95vw;
+    min-width: 320px;
+    height: 95vh;
   }
 }
 
