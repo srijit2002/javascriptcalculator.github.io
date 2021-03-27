@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+:root {
+  --primary-bg-light: rgb(251, 251, 251);
+  --primary-bg-dark: #191b28;
+
+  
+  --secondary-key: #52c9dd;
+  
+  --primary-key-dark: #1e2336;
+  --primary-key-light: rgb(204, 250, 250);
+
+
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:var(--primary-bg-light) ;
+}
+.theme--btn{
+ cursor: pointer;
+ display: inline;
+}
+.theme--btn.light{
+
+  background-color: var(--primary-bg-light);
+ &::before{
+   filter: invert(1);
+ }
+}
+body.light{
+
+  background-color: var(--primary-bg-dark);
+}
+.calculator {
+  
+  width: 330px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+ 
+  background-color: var(--primary-bg-dark);
+}
+
+.calculator.light{
+
+  background-color: var(--primary-bg-light);
+}
+
+
+
+.calculator__display {
+  width: 100%;
+  height: 32%;
+  display:flex;
+  justify-content: space-between;
+  flex-direction:column;
+  padding:0.2em;
+  background-color: var(--primary-bg-dark);
+}
+
+.calculator__display.light{
+
+  background-color:var(--primary-bg-light) ;
+}
+
+
+.output__display{
+    flex-basis:70%;
+    background-color: var(--primary-bg-dark);
+    border: none;
+    border-bottom: 1px solid rgb(56, 56, 56);
+    outline: none;
+    padding:0.4em;
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.output__display.light{
+
+  background-color:var(--primary-bg-light);
+  color: var(--primary-bg-dark);
+}
+
+
+.input__display{
+    flex-basis: 28%;
+    background-color: var(--primary-bg-dark);
+    outline: none;
+    border: none;
+    padding:0.4em;
+}
+
+.input__display.light{
+
+  background-color:var(--primary-bg-light);
+  color: var(--primary-bg-dark);
+}
+
+.calculator__keypad {
+  padding: 0.5em;
+  width: 100%;
+  height: 68%;
+  display: grid;
+  grid-gap: 0.7em;
+  grid-template-areas:
+    "ac percen pi divide"
+    "se ei ni multi"
+    "fo fi si minus"
+    "o tw th plus"
+    "z point equal plus";
+}
+
+
+#ac {
+  grid-area: ac;
+}
+#pi {
+  grid-area: pi;
+}
+#divide {
+  grid-area: divide;
+}
+#percen {
+  grid-area: percen;
+}
+#multi {
+  grid-area: multi;
+}
+#plus {
+  grid-area: plus;
+}
+#minus {
+  grid-area: minus;
+}
+#equal {
+  grid-area: equal;
+}
+#z {
+  grid-area: z;
+}
+#o {
+  grid-area: o;
+}
+#tw {
+  grid-area: tw;
+}
+#th {
+  grid-area: th;
+}
+#fo {
+  grid-area: fo;
+}
+#fi {
+  grid-area: fi;
+}
+#si {
+  grid-area: si;
+}
+#se {
+  grid-area: se;
+}
+#ei {
+  grid-area: ei;
+}
+#ni {
+  grid-area: ni;
+}
+#point {
+  grid-area: point;
+}
+
+.keypad__btn {
+    
+    background-color: var(--primary-key-dark);
+    border-radius: 0.4rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    cursor: pointer;
+    &:hover{
+        filter: brightness(85%);
+    }
+  }
+
+  .keypad__btn.light{
+
+    background-color:var(--primary-key-light);
+    color:var(--primary-key-dark);
+  }
+  .operator{
+      background-color: var(--secondary-key);
+  }
+
+
+@media(max-width:400px){
+
+  .calculator{
+    width: 300px;
+    height:90vh;
+    max-height: 600px;
+  }
+}
