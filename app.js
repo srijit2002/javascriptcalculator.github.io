@@ -17,7 +17,8 @@ function showInput(element) {
     else if (element.innerHTML == "=") {
 
         try {
-            calculate();
+            convertToCalculateableString();
+
 
         } catch (error) {
             outputDisplay.value = "Syntax error";
@@ -29,14 +30,25 @@ function showInput(element) {
 
 }
 
+function convertToCalculateableString() {
+    //  bug fixes versio 1.2.0
 
-function calculate() {
-    var inputCalculation = document.querySelector(".input__display").value;
-    var str="44-0044";
-    // testing bug============================================================
-    regex=/[\d]^.[0+][1-9]/g;
-    console.log(str.replace(regex,""))
-   //ends here=================================================================
+    // Fixed the issue that it failed to calculate if an non-decimal number has a multiple leading zero before it    
+    var regularExpressionForMatching = /[\(\)\+\*\/-]\d+/g;
+    var str = `+${document.getElementById("input").value}`;
+    var matches = str.match(regularExpressionForMatching);
+    matches.forEach(element => {
+        var toBeReplaced = `${element.charAt(0)}${parseFloat(element.slice(1, element.length))}`;
+        str = str.replace(element, toBeReplaced);
+    })
+    var calculateAbleString = str.slice(1);
+
+
+    calculate(calculateAbleString);
+}
+
+function calculate(calculateAbleString) {
+    var inputCalculation = calculateAbleString;
     var answer = eval(inputCalculation);
     if (isNaN(answer)) {
         outputDisplay.value = "Undefined";
